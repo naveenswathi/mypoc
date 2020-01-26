@@ -12,5 +12,10 @@ node{
      def mvnCMD = "${mvnHome}/bin/mvn"
      sh "${mvnCMD} test"
   }  
+  stage('deploy war to tomcat'){
+     sshagent(['deploy']) {
+     sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.7.233:/opt/tomcat8/webapps/'  
+     }     
+  }
 }  
          

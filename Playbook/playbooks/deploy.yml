@@ -10,7 +10,7 @@
        command: sh {{ tomcat_path }}/bin/shutdown.sh
      - name: deploy war
        copy: 
-         src: /var/jenkins_home/workspace/BUILD1/*.war 
+         src: /var/jenkins_home/workspace/BUILD1/target /*.war
          dest: {{ tomcat_folder}}
      - name: start tomcat
        command: sh {{ tomcat_path }}/bin/startup.sh

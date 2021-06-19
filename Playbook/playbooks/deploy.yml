@@ -2,10 +2,10 @@
  - name: deploy war file
    hosts: tomcat
    become: yes
-   tasks: 
    vars:
      tomcat_folder: "//usr/local/tomcat/webapps/"
      tomcat_path: "/usr/local/tomcat/"
+   tasks:  
      - name: stop tomcat
        command: sh {{ tomcat_path }}/bin/shutdown.sh
      - name: deploy war

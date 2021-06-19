@@ -1,0 +1,16 @@
+---
+ - name: deploy war file
+   hosts: tomcat
+   become: yes
+   tasks: 
+   vars:
+     tomcat_folder: "//usr/local/tomcat/webapps/"
+     tomcat_path: "/usr/local/tomcat/"
+     - name: stop tomcat
+       command: sh {{ tomcat_path }}/bin/shutdown.sh
+     - name: deploy war
+       copy: 
+         src: /var/jenkins_home/workspace/BUILD1/*.war 
+         dest: {{ tomcat_folder}}
+     - name: start tomcat
+       command: sh {{ tomcat_path }}/bin/startup.sh

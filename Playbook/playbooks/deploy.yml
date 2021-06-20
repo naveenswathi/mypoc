@@ -1,7 +1,6 @@
 ---
  - name: deploy war file
    hosts: containers
-   become: yes
    vars:
      tomcat_folder: "//usr/local/tomcat/webapps/"
      tomcat_path: "/usr/local/tomcat/"

@@ -4,6 +4,7 @@
    vars:
      tomcat_folder: "//usr/local/tomcat/webapps/"
      tomcat_path: "/usr/local/tomcat/"
+   tasks:  
      - name: deploy war
        copy: 
          src: /var/lib/jenkins/workspace/BUILD1/target/myweb-0.0.7.war
